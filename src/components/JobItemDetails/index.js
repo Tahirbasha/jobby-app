@@ -63,10 +63,7 @@ class JobItemDetails extends Component {
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
     })
-    const {match} = this.props
-    const {params} = match
-    const {id} = params
-
+    const id = window.location.pathname.split('/').slice(-1)[0];
     const jwtToken = Cookies.get('jwt_token')
     const url = `https://apis.ccbp.in/jobs/${id}`
     const options = {
@@ -130,14 +127,14 @@ class JobItemDetails extends Component {
             <div className="location-container">
               <div className="responsive">
                 <GoLocation className="location-logo" />
-                <p className="location-desc">{location}</p>
+                <span className="location-desc">{location}</span>
               </div>
               <div className="responsive">
                 <BsBriefcaseFill className="location-logo-brief" />
-                <p className="location-desc">{employmentType}</p>
+                <span className="location-desc">{employmentType}</span>
               </div>
             </div>
-            <p className="package-desc">{packagePerAnnum}</p>
+            <span className="package-desc">{packagePerAnnum}</span>
           </div>
           <hr className="line" />
           <div className="description-container">
@@ -175,7 +172,7 @@ class JobItemDetails extends Component {
   }
 
   renderFailureView = () => (
-    <div className="render-loading-view">
+    <div className="render-loading-view text-center">
       <img
         src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
         alt="failure view"

@@ -9,4 +9,49 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+@media (max-width: 1024px) {
+  .card-container {
+    width: 55%;
+    height: 40%;
+  }
+
+  .form-container {
+    width: 85%;
+  }
+
+  .user-input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-container {
+    width: 80%;
+    height: 60%;
+  }
+
+  .form-container {
+    width: 85%;
+  }
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }

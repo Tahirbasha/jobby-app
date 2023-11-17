@@ -11,24 +11,24 @@ const Home = () => {
   }
 
   return (
-    <>
+    <div className="home-container">
       <Header />
-      <div className="home-container">
+      <div className="home-body-container px-3">
         <div className="responsive-container">
-          <h1 className="main-heading">Find The Job That Fits Your Life</h1>
+          <h1>Find The Job That Fits Your Life</h1>
           <p className="job-desc">
             Millions of people are searching for jobs, salary information,
-            company reviews. Find the job that fits your abilities and
+            company reviews. <br/>Find the job that fits your abilities and
             potential.
           </p>
           <Link to="/jobs" className="link-item">
-            <button type="button" className="find-jobs">
+            <button type="button" className="btn btn-primary find-jobs-btn">
               Find Jobs
             </button>
           </Link>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

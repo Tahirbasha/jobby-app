@@ -1,4 +1,4 @@
-import {Component} from 'react'
+import { Component } from 'react'
 import Cookies from 'js-cookie'
 import './index.css'
 import { CustomNavigate } from '../Utils/navigate'
@@ -18,13 +18,13 @@ class LoginForm extends Component {
   }
 
   onSubmitFailure = errorMsg => {
-    this.setState({showSubmitError: true, errorMsg})
+    this.setState({ showSubmitError: true, errorMsg })
   }
 
   onSubmitForm = async event => {
     event.preventDefault()
-    const {username, password} = this.state
-    const userDetails = {username, password}
+    const { username, password } = this.state
+    const userDetails = { username, password }
     const url = 'https://apis.ccbp.in/login'
     const options = {
       method: 'POST',
@@ -40,54 +40,15 @@ class LoginForm extends Component {
   }
 
   onEnterUsername = event => {
-    this.setState({username: event.target.value})
+    this.setState({ username: event.target.value })
   }
 
   onChangePassword = event => {
-    this.setState({password: event.target.value})
-  }
-
-  renderUsername = () => {
-    const {username} = this.state
-    return (
-      <>
-        <label className="label" htmlFor="userName">
-          USERNAME
-        </label>
-        <input
-          type="text"
-          id="userName"
-          placeholder="Username"
-          className="user-input"
-          value={username}
-          onChange={this.onEnterUsername}
-        />
-      </>
-    )
-  }
-
-  renderPassword = () => {
-    const {password} = this.state
-
-    return (
-      <>
-        <label className="label" htmlFor="password">
-          Password
-        </label>
-        <input
-          className="user-input"
-          id="password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={this.onChangePassword}
-        />
-      </>
-    )
+    this.setState({ password: event.target.value })
   }
 
   render() {
-    const {showSubmitError, errorMsg} = this.state
+    const { showSubmitError, errorMsg, username, password } = this.state
     const jwtToken = Cookies.get('jwt_token')
     if (jwtToken !== undefined) {
       CustomNavigate("/", true);
@@ -102,8 +63,32 @@ class LoginForm extends Component {
             className="website-logo"
           />
           <form className="form-container" onSubmit={this.onSubmitForm}>
-            <div className="input-container">{this.renderUsername()}</div>
-            <div className="input-container">{this.renderPassword()}</div>
+            <div className="input-container">
+              <label className="label" htmlFor="userName">
+                USERNAME
+              </label>
+              <input
+                type="text"
+                id="userName"
+                placeholder="Username"
+                className="user-input"
+                value={username}
+                onChange={this.onEnterUsername}
+              />
+            </div>
+            <div className="input-container">
+              <label className="label" htmlFor="password">
+                Password
+              </label>
+              <input
+                className="user-input"
+                id="password"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={this.onChangePassword}
+              />
+            </div>
             <button className="login-button" type="submit">
               Login
             </button>

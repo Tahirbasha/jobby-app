@@ -127,7 +127,7 @@ class JobProfileSection extends Component {
     const {jobsList, searchInput} = this.state
     const jobsDisplay = jobsList.length > 0
 
-    return jobsDisplay ? (
+    return (
       <div className="details-container">
         <div className="search-input">
           <input
@@ -147,43 +147,24 @@ class JobProfileSection extends Component {
             <BsSearch className="search-icon" />
           </button>
         </div>
-        <ul className="job-details-item-container">
+        {jobsDisplay ? <ul className="job-details-item-container">
           {jobsList.map(eachData => (
             <JobCard key={eachData.id} jobDetails={eachData} />
           ))}
-        </ul>
+        </ul> :
+               <div>
+               <img
+                 src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+                 alt="no jobs"
+                 className="no-jobs"
+               />
+               <h1 className="no-jobs-heading">No Jobs Found</h1>
+               <p className="no-jobs-desc">
+                 We could not find any jobs. Try other filters.
+               </p>
+               </div> }
       </div>
-    ) : (
-      <div className="no-jobs-container">
-        <div className="search-input-content">
-          <input
-            type="search"
-            className="search"
-            placeholder="Search"
-            value={searchInput}
-            onChange={this.changeSearchInput}
-            onKeyDown={this.onEnterKey}
-          />
-          <button
-            type="button"
-            testid="searchButton"
-            className="search-button"
-            onClick={this.getJobDetails}
-          >
-            <BsSearch className="search-icon" />
-          </button>
-        </div>
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
-          alt="no jobs"
-          className="no-jobs"
-        />
-        <h1 className="no-jobs-heading">No Jobs Found</h1>
-        <p className="no-jobs-desc">
-          We could not find any jobs. Try other filters.
-        </p>
-      </div>
-    )
+    );
   }
 
   renderFailureView = () => (

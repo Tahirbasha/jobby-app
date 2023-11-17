@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 }
 .full-job-item-container {
   display: flex;
@@ -11,11 +12,11 @@
   justify-content: center;
   margin: 60px;
 }
-.profile-loader-container {
+.get-products-details-container>.profile-loader-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 200px;
+  margin-top: 0;
 }
 .job-items-container {
   background-color: #202020;
@@ -165,4 +166,38 @@
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
+}
+@media (max-width: 576px) {
+  .full-job-item-container {
+    width: 100vw;
+    padding: 15px;
+  }
+  .life-at-company-container {
+    flex-direction: column;
+  }
+  .company-logo {
+    margin: 0;
+  }
+  .similar-cards {
+    padding: 0;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 800px) {
+  .company-logo {
+    margin: 0;
+    width: 100%;
+    order: 0;
+  }
+  .life-at-company-container {
+    flex-direction: column;
+  }
+  .similar-cards{
+    padding: 0;
+  }
+  .similar-list-docs {
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%;
+  }
 }

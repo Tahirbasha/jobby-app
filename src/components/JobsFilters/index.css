@@ -1,3 +1,12 @@
+.salary-heading, .check-label {
+  color: #fff;
+}
+.salary-range-container {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+/* @media (max-width: 1025px) { */
 .job-filter-group {
   display: flex;
   flex-direction: column;
@@ -11,11 +20,6 @@
   font-size: 18px;
   margin-bottom: 15px;
   margin-top: 30px;
-}
-.salary-range-container {
-  list-style-type: none;
-  padding: 0px;
-  margin: 0px;
 }
 .salary-container {
   display: flex;
@@ -35,4 +39,12 @@
 .horizontal-line {
   width: 100%;
   border: 1px solid #7e858e;
+}
+/* } */
+@media (min-width: 578px) and (max-width: 1024px) {
+
+}
+
+@media (max-width: 576px) {
+
 }

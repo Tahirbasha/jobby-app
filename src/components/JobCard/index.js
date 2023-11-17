@@ -27,7 +27,7 @@ const JobCard = props => {
             <h1 className="company-title">{title}</h1>
             <div className="star-icon-container">
               <AiFillStar className="star-icon" />
-              <p className="rating-count">{rating}</p>
+              <span className="rating-count">{rating}</span>
             </div>
           </div>
         </div>
@@ -35,20 +35,20 @@ const JobCard = props => {
           <div className="location-desc">
             <div className="star-icon-container">
               <HiLocationMarker className="location-icon" />
-              <p className="location-desc description">{location}</p>
+              <span className="location-desc description">{location}</span>
             </div>
             <div className="star-icon-container">
               <HiMail className="location-icon left-icon" />
-              <p className="emp-type description">{employmentType}</p>
+              <span className="emp-type description">{employmentType}</span>
             </div>
           </div>
           <div className="star-icon-container">
-            <p className="package-desc description">{packagePerAnnum}</p>
+            <span className="package-desc description">{packagePerAnnum}</span>
           </div>
         </div>
         <hr className="line" />
         <h1 className="desc-heading">Description</h1>
-        <p className="job-description">{jobDescription}</p>
+        <span className="job-description">{jobDescription}</span>
       </li>
     </Link>
   )

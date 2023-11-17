@@ -26,20 +26,20 @@ const SimilarJobItem = props => {
           <h1 className="company-logo-title">{title}</h1>
           <div className="rating-container">
             <AiFillStar className="star-icon" />
-            <p className="count-rating">{rating}</p>
+            <span className="count-rating">{rating}</span>
           </div>
         </div>
       </div>
       <h1 className="similar-desc-heading">Description</h1>
-      <p className="similar-desc">{jobDescription}</p>
+      <span className="similar-desc">{jobDescription}</span>
       <div className="location-container-flex-justify">
         <div className="responsive">
           <GoLocation className="location-logo" />
-          <p className="location-desc">{location}</p>
+          <span className="location-desc">{location}</span>
         </div>
         <div className="responsive">
           <BsBriefcaseFill className="location-logo-brief" />
-          <p className="location-desc">{employmentType}</p>
+          <span className="location-desc">{employmentType}</span>
         </div>
       </div>
     </li>
