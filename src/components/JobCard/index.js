@@ -39,7 +39,7 @@ const JobCard = props => {
               <span className="location-desc description">{location}</span>
             </div>
             <div className="star-icon-container">
-              <HiMail className="location-icon left-icon" />
+              <HiMail className="location-icon" />
               <span className="emp-type description">{employmentType}</span>
             </div>
             <div className="star-icon-container">

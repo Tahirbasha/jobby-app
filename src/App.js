@@ -8,8 +8,8 @@ import './App.css'
 
 const App = () => (
   <Routes>
-    <Route path="/login" element={<LoginForm/>} />
-    <Route path="/" element={<Home/>} />
+    <Route path="/" element={<LoginForm/>} />
+    <Route path="/home" element={<Home/>} />
     <Route path="/jobs" element={<Jobs/>} />
     <Route path="/jobs/:id" element={<JobItemDetails/>} />
     <Route element={<NotFound/>} />

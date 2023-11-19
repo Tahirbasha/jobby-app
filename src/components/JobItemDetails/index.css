@@ -39,7 +39,7 @@
 }
 .company-title-head {
   color: #fff;
-  font-size: 22px;
+  font-size: 20px;
   font-family: 'Roboto';
   margin-bottom: 10px;
 }
@@ -68,6 +68,7 @@
 .responsive {
   display: flex;
   align-items: center;
+  margin-right: 10px;
 }
 .location-logo {
   color: #fff;
@@ -82,7 +83,6 @@
 .location-logo-brief {
   color: #fff;
   font-size: 22px;
-  margin-left: 25px;
 }
 .package-desc {
   color: #fff;
@@ -194,6 +194,9 @@
   .failure-view {
     width: 100%;
   }
+  .location-container {
+    width: 100%;
+  }
 }
 
 @media (min-width: 577px) and (max-width: 1024px) {
@@ -212,5 +215,8 @@
     margin: 0;
     margin-bottom: 20px;
     width: 100%;
+  }
+  .location-container {
+
   }
 }

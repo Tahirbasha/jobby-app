@@ -9,7 +9,7 @@ const Header = props => {
   
   const onClickLogout = () => {
     Cookies.remove('jwt_token')
-    navigate("/login", { replace: true });
+    navigate("/", { replace: true });
   }
 
   return (
@@ -24,7 +24,7 @@ const Header = props => {
               stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M5 17h14M5 12h14M5 7h14" /></svg>
         </button> : null}
-        <Link to="/" className="link_items">
+        <Link to="/home" className="link_items">
           <img
             src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
             alt="website logo"
@@ -33,7 +33,7 @@ const Header = props => {
         </Link>
       </div>
       <ul className="header-list-items">
-        <Link to="/" className="link_items">
+        <Link to="/home" className="link_items">
           <li>Home</li>
         </Link>
         <Link to="/jobs" className="link_items">
@@ -41,7 +41,7 @@ const Header = props => {
         </Link>
       </ul>
       <ul className="header-sm-list-items">
-        <Link to="/" className="link_items">
+        <Link to="/home" className="link_items">
           <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
             viewBox="0 0 24 24"><path fill="white" d="M5 20V9.5l7-5.288L19 9.5V20h-5.192v-6.385h-3.616V20H5Z" /
             ></svg></li>

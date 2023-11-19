@@ -16,7 +16,7 @@
   margin-right: 15px;
 }
 .company-title {
-  font-size: 26px;
+  font-size: 25px;
   font-family: 'Roboto';
   font-weight: 800;
   color: #fff;
@@ -41,9 +41,9 @@
 }
 .description {
   color: #fff;
-  font-size: 16px;
+  font-size: 12px;
   font-family: 'Roboto';
-  margin-left: 8px;
+  margin-left: 10px;
 }
 .star-icon {
   font-size: 25px;
@@ -59,9 +59,6 @@
 }
 .star-icon-container {
   margin-right: 10px;
-}
-.left-icon {
-  margin-left: 35px;
 }
 .line {
   border: 1px solid #7e858e;

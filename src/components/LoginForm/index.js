@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import Cookies from 'js-cookie'
 import './index.css'
-import { CustomNavigate } from '../Utils/navigate'
 
 class LoginForm extends Component {
   state = {
@@ -15,7 +14,7 @@ class LoginForm extends Component {
     Cookies.set('jwt_token', jwtToken, {
       expires: 30,
     });
-    window.location.replace("/");
+    window.location.replace("/home");
   }
 
   onSubmitFailure = errorMsg => {
@@ -51,7 +50,7 @@ class LoginForm extends Component {
     const { showSubmitError, errorMsg, username, password } = this.state
     const jwtToken = Cookies.get('jwt_token')
     if (jwtToken !== undefined) {
-      CustomNavigate("/", true);
+      window.location.replace("/home");
     }
 
     return (
@@ -90,17 +89,17 @@ class LoginForm extends Component {
               />
             </div>
             <div class="form-check">
-              <input 
-              class="form-check-input" 
-              type="checkbox" 
-              value="true" 
-              checked={this.state.showPassword}
-              id="flexCheckDefault"
-              onChange={(e) => this.setState({showPassword: e.target.checked})}
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="true"
+                checked={this.state.showPassword}
+                id="flexCheckDefault"
+                onChange={(e) => this.setState({ showPassword: e.target.checked })}
               />
-                <label class="form-check-label" htmlFor="flexCheckDefault">
-                  Show Password
-                </label>
+              <label class="form-check-label" htmlFor="flexCheckDefault">
+                Show Password
+              </label>
             </div>
             <button className="login-button" type="submit">
               Login
