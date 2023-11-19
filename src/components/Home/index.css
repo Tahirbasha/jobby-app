@@ -27,6 +27,7 @@
   .find-jobs-btn {
     margin-top: 5%;
     background-color: #4f46e5;
+    border: 0;
   }
 }
 @media (min-width: 578px) and (max-width: 1024px) {

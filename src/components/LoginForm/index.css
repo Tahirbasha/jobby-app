@@ -76,3 +76,14 @@
   line-height: 16px;
   color: #ff0b37;
 }
+.form-check-label{
+  color: #fff;
+  font-family: 'Roboto';
+}
+.form-check-input:checked {
+  background-color: #4f46e5;
+  border: 0;
+}
+.form-check-input:focus {
+  box-shadow: none;
+}

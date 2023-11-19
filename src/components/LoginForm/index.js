@@ -5,10 +5,11 @@ import { CustomNavigate } from '../Utils/navigate'
 
 class LoginForm extends Component {
   state = {
-    username: '',
-    password: '',
+    username: 'admin',
+    password: 'abcd',
     showSubmitError: false,
     errorMsg: '',
+    showPassword: false
   }
   onSubmitSuccess = jwtToken => {
     Cookies.set('jwt_token', jwtToken, {
@@ -23,8 +24,7 @@ class LoginForm extends Component {
 
   onSubmitForm = async event => {
     event.preventDefault()
-    const { username, password } = this.state
-    const userDetails = { username, password }
+    const userDetails = { username: 'rahul', password: 'rahul@2021' }
     const url = 'https://apis.ccbp.in/login'
     const options = {
       method: 'POST',
@@ -76,18 +76,31 @@ class LoginForm extends Component {
                 onChange={this.onEnterUsername}
               />
             </div>
-            <div className="input-container">
+            <div className="input-container my-2">
               <label className="label" htmlFor="password">
                 Password
               </label>
               <input
                 className="user-input"
                 id="password"
-                type="password"
+                type={`${this.state.showPassword ? 'text' : 'password'}`}
                 placeholder="Password"
                 value={password}
                 onChange={this.onChangePassword}
               />
+            </div>
+            <div class="form-check">
+              <input 
+              class="form-check-input" 
+              type="checkbox" 
+              value="true" 
+              checked={this.state.showPassword}
+              id="flexCheckDefault"
+              onChange={(e) => this.setState({showPassword: e.target.checked})}
+              />
+                <label class="form-check-label" htmlFor="flexCheckDefault">
+                  Show Password
+                </label>
             </div>
             <button className="login-button" type="submit">
               Login

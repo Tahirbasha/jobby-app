@@ -27,6 +27,7 @@
 .logout-btn {
   margin-right: 15px;
   background-color: #4f46e5;
+  border: 0;
 }
 .link_items {
   text-decoration: none;
@@ -62,6 +63,7 @@
 }
 .logout-modal-content>div>button:nth-child(2) {
   background-color: #4f46e5;
+  border: 0;
 }
 @media (max-width: 576px) {
   .website_logo {
