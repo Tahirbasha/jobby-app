@@ -40,7 +40,6 @@ text-align: center;
   display: flex;
   align-self: flex-start;
   background: transparent;
-  width: 500px;
   border-radius: 5px;
   padding: 10px;
   outline: none;
@@ -55,7 +54,7 @@ text-align: center;
 .search-input-content {
   display: flex;
   background: transparent;
-  width: 500px;
+  width: 80%;
   border-radius: 5px;
   padding: 10px;
   outline: none;
@@ -107,6 +106,7 @@ text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-self: center;
 }
 .failure-heading {
   font-size: 42px;
@@ -115,7 +115,7 @@ text-align: center;
   color: #fff;
 }
 .failure-desc {
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'roboto';
   color: #fff;
 }
@@ -153,8 +153,45 @@ text-align: center;
   font-family: 'Roboto';
   font-weight: 400;
   color: #fff;
+  border-radius: 5px;
 }
 
 @media (max-width: 576px) {
-
+  .render-group-items {
+    display: none;
+  }
+.render-sm-group-items {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 50vw;
+  background: #000;
+  padding-top: 10px;
+}
+.responsive-items{
+  width: 100%;
+}
+.job-details-container {
+  padding: 0 !important;
+  width: 100%;
+}
+.job-profile-container {
+  padding: 0 !important;
+}
+.search-input{
+  width: 90%;
+}
+.job-list-items{
+  padding: 15px;
+  margin: 12px;
+}
+.details-container>div:nth-child(2) {
+width: 100%;
+padding: 2%;
+  }
+.no-jobs{
+  width: 100%;
+}
 }

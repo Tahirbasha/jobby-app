@@ -1,10 +1,11 @@
-import {AiFillStar} from 'react-icons/ai'
-import {Link} from 'react-router-dom'
-import {HiLocationMarker, HiMail} from 'react-icons/hi'
+import { AiFillStar } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
+import { HiLocationMarker, HiMail } from 'react-icons/hi'
+import { BsCash } from 'react-icons/bs'
 import './index.css'
 
 const JobCard = props => {
-  const {jobDetails} = props
+  const { jobDetails } = props
   const {
     title,
     companyLogoUrl,
@@ -41,9 +42,10 @@ const JobCard = props => {
               <HiMail className="location-icon left-icon" />
               <span className="emp-type description">{employmentType}</span>
             </div>
-          </div>
-          <div className="star-icon-container">
-            <span className="package-desc description">{packagePerAnnum}</span>
+            <div className="star-icon-container">
+              <BsCash className="location-logo-brief" />
+              <span className="package-desc description">{packagePerAnnum}</span>
+            </div>
           </div>
         </div>
         <hr className="line" />

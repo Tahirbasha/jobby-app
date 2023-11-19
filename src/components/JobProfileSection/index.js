@@ -1,6 +1,6 @@
-import {Component} from 'react'
-import {ThreeDots} from 'react-loader-spinner'
-import {BsSearch} from 'react-icons/bs'
+import { Component } from 'react'
+import { ThreeDots } from 'react-loader-spinner'
+import { BsSearch } from 'react-icons/bs'
 import Cookies from 'js-cookie'
 import JobCard from '../JobCard'
 import JobsFilters from '../JobsFilters'
@@ -58,19 +58,26 @@ class JobProfileSection extends Component {
     employmentType: [],
     salaryRange: 0,
     apiStatus: apiStatusConstants.initial,
+    sideNavOpen: false
   }
 
   componentDidMount() {
     this.getJobDetails()
   }
-
+  componentWillReceiveProps() {
+    if (this.props.isSideNavOpen) {
+      this.setState({ sideNavOpen: true });
+    } else {
+      this.setState({ sideNavOpen: false });
+    }
+  }
   getJobDetails = async () => {
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
     })
 
     const jwtToken = Cookies.get('jwt_token')
-    const {salaryRange, employmentType, searchInput} = this.state
+    const { salaryRange, employmentType, searchInput } = this.state
     const url = `https://apis.ccbp.in/jobs?employment_type=${employmentType.join()}&minimum_package=${salaryRange}&search=${searchInput}`
     const options = {
       headers: {
@@ -103,7 +110,7 @@ class JobProfileSection extends Component {
   }
 
   changeSearchInput = event => {
-    this.setState({searchInput: event.target.value})
+    this.setState({ searchInput: event.target.value })
   }
 
   onKeyDown = event => {
@@ -113,18 +120,23 @@ class JobProfileSection extends Component {
   }
 
   changeSalaryRange = salary => {
-    this.setState({salaryRange: salary}, this.getJobDetails)
+    this.setState({ salaryRange: salary }, this.getJobDetails)
   }
 
-  changeEmploymentType = type => {
-    this.setState(
-      prev => ({employmentType: [...prev.employmentType, type]}),
-      this.getJobDetails,
-    )
+  changeEmploymentType = (type, value) => {
+    if(value) {
+      this.setState(
+        prev => ({ employmentType: [...prev.employmentType, type] }),
+        this.getJobDetails,
+      )
+    } else {
+      const employmentTypes = this.state.employmentType.filter(each => each !== type);
+      this.setState(({ employmentType: employmentTypes }), this.getJobDetails);
+    }
   }
 
   renderJobDetails = () => {
-    const {jobsList, searchInput} = this.state
+    const { jobsList, searchInput } = this.state
     const jobsDisplay = jobsList.length > 0
 
     return (
@@ -152,23 +164,23 @@ class JobProfileSection extends Component {
             <JobCard key={eachData.id} jobDetails={eachData} />
           ))}
         </ul> :
-               <div>
-               <img
-                 src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
-                 alt="no jobs"
-                 className="no-jobs"
-               />
-               <h1 className="no-jobs-heading">No Jobs Found</h1>
-               <p className="no-jobs-desc">
-                 We could not find any jobs. Try other filters.
-               </p>
-               </div> }
+          <div>
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+              alt="no jobs"
+              className="no-jobs"
+            />
+            <h1 className="no-jobs-heading">No Jobs Found</h1>
+            <p className="no-jobs-desc">
+              We could not find any jobs. Try other filters.
+            </p>
+          </div>}
       </div>
     );
   }
 
   renderFailureView = () => (
-    <div className="failure-container">
+    <div className="failure-container text-center">
       <img
         src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
         alt="failure view"
@@ -191,20 +203,20 @@ class JobProfileSection extends Component {
 
   renderLoadingView = () => (
     <div className="profile-loader-container" testid="loader">
-       <ThreeDots
-            height="80"
-            width="80"
-            radius="9"
-            color="#fff"
-            ariaLabel="three-dots-loading"
-            wrapperClass="loader"
-            visible={true}
-        />
+      <ThreeDots
+        height="80"
+        width="80"
+        radius="9"
+        color="#fff"
+        ariaLabel="three-dots-loading"
+        wrapperClass="loader"
+        visible={true}
+      />
     </div>
   )
 
   renderJobProfileDetailsList = () => {
-    const {apiStatus} = this.state
+    const { apiStatus } = this.state
 
     switch (apiStatus) {
       case apiStatusConstants.success:
@@ -219,10 +231,18 @@ class JobProfileSection extends Component {
   }
 
   render() {
-    const {searchInput} = this.state
+    const { searchInput } = this.state
     return (
       <div className="job-details-container">
-        <div className="render-group-items">
+        <div className={`render-group-items ${this.state.sideNavOpen ? 'render-sm-group-items' : ''}`}>
+          <button
+            className="cross-button"
+            onClick={() => this.setState({ sideNavOpen: false })}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="none" stroke="white" stroke-linecap="round"
+                stroke-width="1.5" d="m8.464 15.535l7.072-7.07m-7.072 0l7.072 7.07" /></svg>
+          </button>
           <JobsFilters
             employmentTypesList={employmentTypesList}
             salaryRangesList={salaryRangesList}

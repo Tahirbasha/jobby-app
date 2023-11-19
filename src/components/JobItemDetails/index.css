@@ -177,13 +177,26 @@
   }
   .company-logo {
     margin: 0;
+    width: 100%;
   }
   .similar-cards {
     padding: 0;
   }
+  .life-company-desc {
+    margin-right: 0;
+  }
+  .location-desc {
+    font-size: 9px;
+  }
+  .location-desc {
+    font-size: 9px;
+  }
+  .failure-view {
+    width: 100%;
+  }
 }
 
-@media (min-width: 577px) and (max-width: 800px) {
+@media (min-width: 577px) and (max-width: 1024px) {
   .company-logo {
     margin: 0;
     width: 100%;

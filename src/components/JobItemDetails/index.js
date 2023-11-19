@@ -2,7 +2,7 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {AiFillStar} from 'react-icons/ai'
 import {GoLocation} from 'react-icons/go'
-import {BsBriefcaseFill} from 'react-icons/bs'
+import {BsBriefcaseFill,BsCash} from 'react-icons/bs'
 import {BiLinkExternal} from 'react-icons/bi'
 import {ThreeDots} from 'react-loader-spinner'
 
@@ -133,8 +133,11 @@ class JobItemDetails extends Component {
                 <BsBriefcaseFill className="location-logo-brief" />
                 <span className="location-desc">{employmentType}</span>
               </div>
+            <div className="responsive package-desc">
+              <BsCash className="location-logo-brief"/>
+              <span className="location-desc">{packagePerAnnum}</span>
+              </div>
             </div>
-            <span className="package-desc">{packagePerAnnum}</span>
           </div>
           <hr className="line" />
           <div className="description-container">
@@ -153,7 +156,7 @@ class JobItemDetails extends Component {
           </ul>
           <h1 className="life-company-heading">Life at company</h1>
           <div className="life-at-company-container">
-            <p className="life-company-desc">{description}</p>
+            <span className="life-company-desc">{description}</span>
             <img
               src={imageUrl}
               alt="life at company"
@@ -178,9 +181,9 @@ class JobItemDetails extends Component {
         alt="failure view"
         className="failure-view"
       />
-      <h1 className="failure-heading">Oops! Something Went Wrong </h1>
+      <h1 className="failure-heading">Oops! Something Went Wrong.</h1>
       <p className="failure-desc">
-        We cannot seem to find the page you are looking for
+        We cannot seem to find the page you are looking for.
       </p>
       <button
         type="button"
@@ -209,7 +212,6 @@ class JobItemDetails extends Component {
 
   renderJobViews = () => {
     const {apiStatus} = this.state
-
     switch (apiStatus) {
       case apiStatusConstants.success:
         return this.renderJobItemDetails()

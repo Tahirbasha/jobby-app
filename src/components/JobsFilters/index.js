@@ -7,20 +7,20 @@ const JobsFilters = props => {
 
     return employmentTypesList.map(employ => {
       const {changeEmploymentType} = props
-      const onChangeEmployType = event =>
-        changeEmploymentType(event.target.value)
+      const onChangeEmployeeType = event =>
+        changeEmploymentType(event.target.value, event.target.checked)
 
       return (
         <li
           className="checkbox-list-items"
           key={employ.employmentTypeId}
-          onChange={onChangeEmployType}
-        >
+          >
           <input
             type="checkbox"
             className="check-radio"
             id={employ.employmentTypeId}
             value={employ.employmentTypeId}
+            onChange={onChangeEmployeeType}
           />
           <label htmlFor={employ.employmentTypeId} className="check-label">
             {employ.label}
