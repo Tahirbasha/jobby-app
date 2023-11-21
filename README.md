@@ -17,7 +17,7 @@ The Jobby App is a mini-project developed using React JS.
 
 ## About
 <p>The app lands you to the login page with the prepopulated login credentials.</p>
-<p>After authentication it navigates to homescreen where you can fine the list of jobs.</p>
+<p>After authentication it navigates to homescreen where you can find the list of jobs.</p>
 <p>Jobs can be filtered using the filters in the side navbar and can search using search header.</p>
 <p>Onclick jobcard navigates to the job detailed info.</p>
 <p>You can logout by clicking on the logout button in the header.</p>
